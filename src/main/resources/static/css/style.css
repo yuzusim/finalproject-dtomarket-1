@@ -488,6 +488,9 @@ nav{
 .cart-table tr.bar,
 .order-table tr.bar{border-bottom:1px solid #222;}
 
+.order-L{width:70%; margin-right:50px}
+.order-R{width:30%;}
+
 .notVisible{
     visibility: hidden;
 }

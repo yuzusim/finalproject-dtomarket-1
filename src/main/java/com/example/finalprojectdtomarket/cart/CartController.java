@@ -37,18 +37,23 @@ public class CartController {
     public String saveCart(CartRequest.saveDTO requestDTO) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         cartService.cartSave(requestDTO, sessionUser);
-
         System.out.println("cart 확인 : " + requestDTO);
-
         return "redirect:/cart-list";
     }
 
-
     @PostMapping("/cart/update")
-    public ResponseEntity<?> update(@RequestBody List<CartRequest.UpdateDTO> reqDTO) {
-        System.out.println("장바구니 값 받니? : " + reqDTO);
-        cartService.updateCart(reqDTO);
+    public ResponseEntity<?> update(@RequestBody List<CartRequest.UpdateDTO> reqDTOs) {
+        System.out.println("장바구니 값 받니? : " + reqDTOs);
+        cartService.updateCart(reqDTOs);
 
         return ResponseEntity.ok().body("선택한 상품의 구매를 진행 하시겠습니까?");
     }
+
+//    @PostMapping("/cart/update")
+//    public ResponseEntity<?> update(@RequestBody List<CartRequest.UpdateDTO> reqDTO) {
+//        System.out.println("장바구니 값 받니? : " + reqDTO);
+//        cartService.updateCart(reqDTO);
+//
+//        return ResponseEntity.ok().body("선택한 상품의 구매를 진행 하시겠습니까?");
+//    }
 }

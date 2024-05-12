@@ -18,6 +18,9 @@
                 {{#cartList}}
                     <tr class="cart-table my-cart-list" id="cart-{{id}}">
                         <td>{{indexNum}}</td>
+                        <input type="hidden" name="cartId" value="{{id}}">
+                        <input type="hidden" name="productId" value="{{productId}}">
+                        <span class="notVisible">{{id}}</span>
                         <td>
                             <div style="width:150px; margin:0 auto;">
                                 <img src="/upload/{{img}}" alt="Product Image"
@@ -123,7 +126,7 @@
                     let checkedCart = {
                         cartId: cartId,
                         orderQty: orderQty,
-                        isChecked: $checkBox.checked ? 1 : 0
+                        isChecked: checkBox.checked ? true : false
                     };
                     cartSaveList.push(checkedCart);
                 }
